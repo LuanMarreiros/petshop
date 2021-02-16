@@ -1,0 +1,20 @@
+.formulario {
+    background: #fff;
+    position: relative;
+    top: 120px;
+    min-width: 150px;
+    font-size: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.336);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.formulario-full-width {
+    width: 100%;
+}
+
+@media(max-width: 800px){
+    .formulario{
+        top: 20px;
+    }
+}

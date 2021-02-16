@@ -75,8 +75,7 @@ class Token {
         try {
             conexao.query(`select * from tb_token_sessao where token = '${token}'`, (erro, resultado) => {
                 if (resultado.length == 0) {
-                    res.status(404);
-                    res.send({ codeStatus: '404', message: 'Usuário não autentificado.', status: false })
+                    res.send({ codeStatus: '200', message: 'Usuário não autentificado.', status: false })
                 } else {
                     res.status(200);
                     res.send({ codeStatus: '200', message: 'Usuário autentificado.', status: true })

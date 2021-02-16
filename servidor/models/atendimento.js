@@ -11,8 +11,7 @@ class Atendimento {
                 const sql = req.params.id ? `select * from tb_atendimentos where id_atendimento = ${req.params.id}` : `select * from tb_atendimentos`;
                 conexao.query(sql, (erro, resultados)=>{
                     if(erro || !resultados[0]){
-                        res.status(404);
-                        res.send({ codeStatus: 404, data: { message: "Atendimento não encontrado." } })
+                        res.send({ codeStatus: 200, data: { message: "Atendimento não encontrado." } })
                     }else if(resultados){
                         res.send({ codeStatus: 200, data: resultados })
                     }

@@ -9,8 +9,7 @@ class Usuario {
 
         conexao.query(sql, (erro, resultados) => {
             if (resultados.length == 0 || !username) {
-                res.status(404);
-                res.send({ codeStatus: '404', data: { message: 'Usuário não encontrado.' } })
+                res.send({ codeStatus: '200', data: { message: 'Usuário não encontrado.' } })
             } else if (erro) {
                 res.status(403);
                 res.send({ codeStatus: '403', sqlState: hasError.sqlState, message: hasError.sqlMessage });
@@ -33,10 +32,13 @@ class Usuario {
                 return;
             }
 
-            if (erro || !resultados[0]) {
+            if (erro) {
                 res.status(403);
                 res.send({ codeStatus: '403', sqlState: hasError.sqlState, message: hasError.sqlMessage });
-            } else {
+            }else if( !resultados[0]) {
+                res.send({ codeStatus: '200', data: [{ message: "Usuário não encontrado." }] })
+            }
+             else {
                 res.send({ codeStatus: '200', token: _token[0], horario_expiracao_token: _token[1], data: resultados })
             }
 
@@ -51,14 +53,12 @@ class Usuario {
                 res.status(403);
                 res.send({ codeStatus: '403', sqlState: hasError.sqlState, message: hasError.sqlMessage });
             } else if (resultados.length == 0) {
-                res.status(404);
-                res.send({ codeStatus: '404', data: { message: 'Usuário não encontrado.' } })
+                res.send({ codeStatus: '200', data: { message: 'Usuário não encontrado.' } })
             } else {
                 if (resultados[0].senha_usuario == request.senha_usuario) {
                     res.send({ codeStatus: '200', data: { autenticado: true } })
                 } else {
-                    res.status(404);
-                    res.send({ codeStatus: '404', data: { autenticado: false } })
+                    res.send({ codeStatus: '200', data: { autenticado: false } })
                 }
             }
         })

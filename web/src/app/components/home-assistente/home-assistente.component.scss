@@ -1,0 +1,24 @@
+mat-drawer {
+  background-color: #303030;
+  width: 300px;
+}
+
+mat-drawer-content{
+    height: 665px !important;
+}
+
+.menu-header{
+    position: relative;
+    top: 15px;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu-body{
+    text-align: left;
+    padding: 10px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}

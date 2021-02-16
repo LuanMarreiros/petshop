@@ -11,8 +11,7 @@ class Cliente {
                 const sql = `select * from tb_clientes as TBC INNER JOIN tb_endereco as TBE on TBC.cpf_cliente = ${req.params.cpf} and TBE.cpf_cliente = ${req.params.cpf}`;
                 conexao.query(sql, (erro, resultados)=>{
                     if(erro || !resultados[0]){
-                        res.status(404);
-                        res.send({ codeStatus: 404, data: { message: "Cliente não encontrado." } })
+                        res.send({ codeStatus: 200, data: { message: "Cliente não encontrado." } })
                     }else if(resultados){
                         res.send({ codeStatus: 200, data: resultados })
                     }

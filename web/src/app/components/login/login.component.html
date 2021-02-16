@@ -1,0 +1,46 @@
+<div class="col-md-6 offset-md-3">
+
+    <form class="formulario" [formGroup]="form">
+        <mat-tab-group [selectedIndex]="atualTab" mat-align-tabs="start">
+
+            <mat-tab label="Username" [disabled]="!isPasswrodValid">
+                <div class="row">
+                    <div align="center" class="col-md-5">
+                        <img src="./assets/logo.png" width="70%" alt="logo">
+                    </div>
+                    <div class="col-md-6">
+                        <br>
+                        <mat-form-field class="formulario-full-width">
+                            <mat-label>Digite seu username</mat-label>
+                            <input matInput formControlName="username">
+                            <mat-error>{{ errorMessage }}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <button class="col-12" mat-flat-button color="warn" (click)="verifyUsername()">Verificar</button>
+            </mat-tab>
+
+            <mat-tab label="Senha" [disabled]="!isUsernameValid">
+                <div class="row">
+                    <div align="center" class="col-md-5">
+                        <img src="./assets/logo.png" width="70%" alt="logo">
+                    </div>
+                    <div class="col-md-6">
+                        <br>
+                        <span>Olá {{ form.value.user }},</span>
+                        <br><br>
+                        <mat-form-field class="formulario-full-width">
+                            <mat-label>Digite sua senha</mat-label>
+                            <input matInput type="password" formControlName="password">
+                            <mat-error>{{ errorMessage }}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br>
+                <button class="col-12" mat-flat-button color="warn" (click)="verifyPassword()">Prosseguir</button>
+            </mat-tab>
+
+        </mat-tab-group>
+    </form>
+
+</div>
