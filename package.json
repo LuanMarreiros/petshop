@@ -1,0 +1,24 @@
+{
+  "name": "petshop",
+  "version": "1.0.0",
+  "description": "aplicação petshop",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon servidor/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuanMarreiros/petshop.git"
+  },
+  "author": "Luan Marreiros da silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuanMarreiros/petshop/issues"
+  },
+  "homepage": "https://github.com/LuanMarreiros/petshop#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6"
+  }
+}
