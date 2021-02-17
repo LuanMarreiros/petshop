@@ -45,6 +45,23 @@ class Usuario {
         })
     }
 
+    validarId(id = null, res){
+        const sql = `SELECT * FROM tb_usuarios as TU INNER JOIN tb_usuarios_perfil as TUP on TUP.id_usuario = ${id} and TU.id_usuario = ${id}`;
+    
+        conexao.query(sql, (erro, resultados) => {
+            if (erro) {
+                res.status(403);
+                res.send({ codeStatus: '403', sqlState: hasError.sqlState, message: hasError.sqlMessage });
+            }else if( !resultados[0]) {
+                res.send({ codeStatus: '200', data: [{ message: "Usuário não encontrado." }] })
+            }
+             else {
+                res.send({ codeStatus: '200', data: resultados })
+            }
+
+        })
+    }
+
     verificarSenha(request = null, res) {
         const sql = `SELECT * FROM tb_usuarios_perfil where id_usuario = ${request.id_usuario}`;
 

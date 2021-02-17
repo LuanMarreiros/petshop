@@ -29,7 +29,8 @@ export class LoginComponent implements OnInit {
         this.form.controls['password'].setErrors({ invalid: true })
         this.errorMessage = "Ocorreu um erro ao localizar usuário.";
       }else{
-        document.cookie = `token = ${data.token}; expires=Sund, 2 May 2032 12:00:00 UTC`;
+        document.cookie = `token = ${data.token}; expires=Sund, 2 May 2032 12:00:00 UTC;path:/token`;
+        document.cookie = `id_usuario = ${data.data[0].id_usuario}; expires=Sund, 2 May 2032 12:00:00 UTC;path:/id_usuario`;
         this._router.navigateByUrl('', { state: { data: data } })
       }
     });

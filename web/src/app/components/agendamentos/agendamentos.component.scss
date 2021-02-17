@@ -1,0 +1,24 @@
+.input-pesquisa{
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+}
+
+.agendamentos{
+    position: relative;
+    top: 25px;
+    font-size: 18px;
+}
+
+.agendamentos mat-card, div{
+    margin-bottom: 15px;
+}
+
+.mat-card-body{
+    padding-left: 15px !important;
+}
+
+.more-details{
+    color: #3f51b5;
+    cursor: pointer;
+}

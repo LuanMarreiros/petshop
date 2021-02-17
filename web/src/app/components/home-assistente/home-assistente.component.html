@@ -8,7 +8,7 @@
                 </div>
                 <hr style="background-color: #fff">
                 <div class="menu-body">
-                    <button class="col-12" color="primary" mat-flat-button (click)="goTo('/agendamentos')">Buscar agendamentos</button>
+                    <button class="col-12" color="primary" mat-flat-button (click)="goTo('agendamentos');drawer.toggle();">Buscar agendamentos</button>
                 </div>
                 <div class="menu-body">
                     <button class="col-12" color="primary" mat-flat-button>Buscar cliente</button>
@@ -34,8 +34,14 @@
                     </div>
                 </mat-toolbar>
 
-                <div ngif>
+                <app-alert [alert]="alert"></app-alert>
 
+                <div *ngIf="alert.componentToShow =='agendamentos'">
+                    <app-agendamentos [alert]="alert"></app-agendamentos>
+                </div>
+
+                <div *ngIf="alert.componentToShow =='detalhes'">
+                    <app-detalhes [alert]="alert"></app-detalhes>
                 </div>
             </mat-drawer-content>
           </mat-drawer-container>

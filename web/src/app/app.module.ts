@@ -10,13 +10,17 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeAssistenteComponent } from './components/home-assistente/home-assistente.component';
 import { AgendamentosComponent } from './components/agendamentos/agendamentos.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { DetalhesComponent } from './components/detalhes/detalhes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeAssistenteComponent,
-    AgendamentosComponent
+    AgendamentosComponent,
+    AlertComponent,
+    DetalhesComponent
   ],
   imports: [
     BrowserModule,

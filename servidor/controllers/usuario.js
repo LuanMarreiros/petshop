@@ -8,6 +8,10 @@ module.exports = app =>{
         const usuario = require('../models/usuario');
         usuario.consultarId(req.params.id, res);
     })
+    app.get('/api/v1/usuarios/validation/id/:id?', (req, res)=>{
+        const usuario = require('../models/usuario');
+        usuario.validarId(req.params.id, res);
+    })
     app.post('/api/v1/usuarios/psw', (req, res)=>{
         const usuario = require('../models/usuario');
         usuario.verificarSenha(req.body, res);

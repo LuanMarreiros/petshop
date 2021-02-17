@@ -30,4 +30,10 @@ export class LoginService {
     );
   }
 
+  validateUserById(id: number):Observable<any>{
+    return this.http.get(this.url.url + 'usuarios/validation/id/' + id).pipe(
+      take(1)
+    );
+  }
+
 }

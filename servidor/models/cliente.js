@@ -8,7 +8,9 @@ class Cliente {
         this.validarToken(req.headers.authorization);
         setTimeout(() => {
             if(tokenStatus){
-                const sql = `select * from tb_clientes as TBC INNER JOIN tb_endereco as TBE on TBC.cpf_cliente = ${req.params.cpf} and TBE.cpf_cliente = ${req.params.cpf}`;
+                const sql = req.params.cpf ? `select * from tb_clientes as TBC INNER JOIN tb_endereco as TBE on TBC.cpf_cliente = ${req.params.cpf} and TBE.cpf_cliente = ${req.params.cpf}`:
+                            `select * from tb_clientes as TBC INNER JOIN tb_endereco as TBE on TBC.id_cliente = ${req.params.id} and TBC.cpf_cliente = TBE.cpf_cliente`;
+
                 conexao.query(sql, (erro, resultados)=>{
                     if(erro || !resultados[0]){
                         res.send({ codeStatus: 200, data: { message: "Cliente não encontrado." } })

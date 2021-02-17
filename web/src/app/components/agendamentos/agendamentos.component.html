@@ -1,1 +1,45 @@
-<p>agendamentos works!</p>
+<div class="col-md-12">
+
+    <form class="container" [formGroup]="form">
+
+        <div class="input-pesquisa">
+            <mat-form-field class="col-md-4">
+                <mat-label>Digite o número do agendamento</mat-label>
+                <input matInput formControlName="id_atendimento">
+            </mat-form-field>
+            <button mat-icon-button (click)="getAtendimentoById()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+
+        <div class="agendamentos" *ngFor="let atendimento of atendimentos">
+            <mat-card>
+                <div class="mat-card-body">
+                    <div align="right">
+                        <mat-label>Código do atendimento:</mat-label>
+                        {{ atendimento.id_atendimento }}
+                    </div>
+                    <div class="row" style="padding: 5px;">
+                        <div class="col-12">
+                            <mat-label>Cliente:</mat-label>
+                            {{ atendimento.nome_cliente }}
+                        </div>
+                        <div class="col-7">
+                            <mat-label>Tipo do serviço:</mat-label>
+                            {{ atendimento.tipo_servico }}
+                        </div>
+                        <div class="col-4" align="right">
+                            <mat-label class="more-details" (click)="goToDetalhes(atendimento.id_cliente)">ver detalhes</mat-label>
+                        </div>
+                        <div class="col-12">
+                            <mat-label>Data agendada:</mat-label>
+                            {{ atendimento.data_atendimento }} às {{ atendimento.horario_atendimento }}
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+    </form>
+
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Alert } from 'src/app/models/alert/alert';
+import { LoginService } from 'src/app/services/login/login.service';
 import { TokenService } from 'src/app/services/token/token.service';
 
 @Component({
@@ -10,8 +12,9 @@ import { TokenService } from 'src/app/services/token/token.service';
 export class HomeAssistenteComponent implements OnInit {
 
   user;
+  alert = new Alert();
 
-  constructor(private _router:Router, private _token:TokenService) { 
+  constructor(private _router:Router, private _token:TokenService, private _login:LoginService,) { 
     this.verifyUser();
   }
 
@@ -25,11 +28,22 @@ export class HomeAssistenteComponent implements OnInit {
       return
     }
     this.verifyToken();
+    this.getUserById();
+  }
+
+  private getUserById(){
+    const id_usuario = parseInt(document.cookie.split(';')[0].replace('id_usuario=', '').trim());
+    const setUserData = (data)=>{
+      this.user = data;
+    }
+    this._login.validateUserById(id_usuario).subscribe(data=>{
+      setUserData(data)
+    });
   }
 
   private verifyToken(){
     const data = {
-      token: document.cookie.replace('token=', '')
+      token: document.cookie.split(';')[1].replace('token=', '').trim()
     }
 
     this._token.validarToken(data).subscribe(data=>{
@@ -41,7 +55,7 @@ export class HomeAssistenteComponent implements OnInit {
   }
 
   goTo(url:string){
-    this._router.navigate([url]);
+    this.alert.componentToShow = url;
   }
 
 }

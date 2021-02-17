@@ -12,7 +12,7 @@
                         <br>
                         <mat-form-field class="formulario-full-width">
                             <mat-label>Digite seu username</mat-label>
-                            <input matInput formControlName="username">
+                            <input matInput autofocus formControlName="username">
                             <mat-error>{{ errorMessage }}</mat-error>
                         </mat-form-field>
                     </div>
@@ -31,7 +31,7 @@
                         <br><br>
                         <mat-form-field class="formulario-full-width">
                             <mat-label>Digite sua senha</mat-label>
-                            <input matInput type="password" formControlName="password">
+                            <input autofocus matInput type="password" formControlName="password">
                             <mat-error>{{ errorMessage }}</mat-error>
                         </mat-form-field>
                     </div>
