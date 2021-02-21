@@ -12,6 +12,7 @@ import { HomeAssistenteComponent } from './components/home-assistente/home-assis
 import { AgendamentosComponent } from './components/agendamentos/agendamentos.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { DetalhesComponent } from './components/detalhes/detalhes.component';
+import { DataPipe } from './pipe/data/data.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DetalhesComponent } from './components/detalhes/detalhes.component';
     HomeAssistenteComponent,
     AgendamentosComponent,
     AlertComponent,
-    DetalhesComponent
+    DetalhesComponent,
+    DataPipe,
   ],
   imports: [
     BrowserModule,

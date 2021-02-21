@@ -1,1 +1,97 @@
-<p>detalhes works!</p>
+<div class="col-md-12"  *ngIf="!alert.message">
+
+    <form class="container">
+
+        <div class="row">
+            <h1 class="col-7">Detalhes do atendimento</h1>
+            <div class="row">
+                <p class="col-12"><strong>Criação do atendimento:</strong> {{ atendimento.data_criacao_atendimento | data }}</p>
+                <p class="col-12"><strong>Status:</strong> {{ atendimento.status_atendimento.toUpperCase() }}</p>
+            </div>
+        </div>
+
+        <h1>Cliente</h1>
+        <hr>
+
+        <div class="row">
+
+            <div class="formulario col-md-3">
+                <label>Nome do cliente</label>
+                <span>{{ atendimento.nome_cliente }}</span>
+            </div>
+
+            <div class="formulario col-md-3">
+                <label>CPF</label>
+                <span>{{ atendimento.cpf_cliente }}</span>
+            </div>
+
+            <div class="formulario col-md-3">
+                <label>Telefone</label>
+                <span>{{ atendimento.telefone_cliente }}</span>
+            </div>
+
+            <div class="formulario col-md-3">
+                <label>Email</label>
+                <span>{{ atendimento.email_cliente }}</span>
+            </div>
+
+        </div>
+
+        <h1>Atendimento</h1>
+        <hr>
+
+        <div class="row"> 
+
+            <div class="formulario col-md-3">
+                <label>Atendente</label>
+                <span>{{ userName }}</span>
+            </div>
+
+            <div class="formulario col-md-3">
+                <label>Tipo de serviço</label>
+                <span>{{ atendimento.tipo_servico }}</span>
+            </div>
+
+            <div class="formulario col-md-3">
+                <label>Data agendada</label>
+                <span>{{ atendimento.data_atendimento | data }}</span>
+              </div>
+
+            <div class="formulario col-md-3">
+                <label>Horário</label>
+                <span>{{ atendimento.horario_atendimento }}</span>
+            </div>
+
+        </div>
+
+        <h1>Animal</h1>
+        <hr>
+
+        <div class="row"> 
+
+            <div class="formulario col-md-3">
+                <label>Nome</label>
+                <span>{{ atendimento.nome_animal_cliente }}</span>
+            </div>
+
+            <div class="formulario col-md-3">
+                <label>Idade</label>
+                <span *ngIf="atendimento.idade_animal_cliente >= 2">{{ atendimento.idade_animal_cliente }} anos</span>
+                <span *ngIf="atendimento.idade_animal_cliente <= 1">{{ atendimento.idade_animal_cliente }} ano</span>
+            </div>
+
+            <div class="formulario col-md-3">
+                <label>Peso</label>
+                <span>{{ atendimento.peso_animal_cliente }} kg</span>
+            </div>
+
+            <div class="formulario col-md-3">
+                <label>Raça</label>
+                <span></span>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>

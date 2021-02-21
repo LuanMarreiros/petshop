@@ -13,6 +13,9 @@ export class HomeAssistenteComponent implements OnInit {
 
   user;
   alert = new Alert();
+  atendimento = {
+    id: null
+  };
 
   constructor(private _router:Router, private _token:TokenService, private _login:LoginService,) { 
     this.verifyUser();
@@ -56,6 +59,11 @@ export class HomeAssistenteComponent implements OnInit {
 
   goTo(url:string){
     this.alert.componentToShow = url;
+  }
+
+  exit(){
+    document.cookie = "token = '';"
+    this._router.navigate(['/login'])
   }
 
 }

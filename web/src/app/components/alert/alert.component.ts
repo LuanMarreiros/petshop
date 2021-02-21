@@ -8,12 +8,12 @@ import { Component, Injectable, Input, OnInit } from '@angular/core';
 
 export class AlertComponent implements OnInit {
 
-  @Input() alert:any;
+  @Input() alert;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.alert.message;
+
   }
 
 }

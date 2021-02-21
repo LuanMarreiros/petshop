@@ -28,7 +28,7 @@
                     <span>Petshop</span>
                     <span class="example-spacer"></span>
                     <div align="right">
-                        <button matTooltip="Deslogar da conta" mat-icon-button>
+                        <button matTooltip="Deslogar da conta" (click)="exit()" mat-icon-button>
                             <mat-icon>logout</mat-icon>
                         </button>
                     </div>
@@ -37,11 +37,11 @@
                 <app-alert [alert]="alert"></app-alert>
 
                 <div *ngIf="alert.componentToShow =='agendamentos'">
-                    <app-agendamentos [alert]="alert"></app-agendamentos>
+                    <app-agendamentos [atendimentoId]="atendimento" [alert]="alert"></app-agendamentos>
                 </div>
 
                 <div *ngIf="alert.componentToShow =='detalhes'">
-                    <app-detalhes [alert]="alert"></app-detalhes>
+                    <app-detalhes [atendimentoId]="atendimento" [alert]="alert"></app-detalhes>
                 </div>
             </mat-drawer-content>
           </mat-drawer-container>

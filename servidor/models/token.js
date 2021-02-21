@@ -35,9 +35,9 @@ class Token {
     }
 
     pegarDataHoje() {
-        let dia = new Date().getUTCDate();
+        let dia = new Date().getDate();
         let mes = new Date().getMonth() + 1;
-        const ano = new Date().getUTCFullYear();
+        const ano = new Date().getFullYear();
 
         if (mes < 9) {
             mes = '0' + mes.toString();
@@ -47,7 +47,7 @@ class Token {
             dia = '0' + dia.toString();
         }
 
-        return `${dia}/${mes}/${ano}`;
+        return `${ano}-${mes}-${dia}`
     }
 
     pegarHoraExpiracao() {

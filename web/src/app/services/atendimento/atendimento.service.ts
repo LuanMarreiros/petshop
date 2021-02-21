@@ -32,6 +32,23 @@ export class AtendimentoService {
     return this.http.get<any>(this.url.url + 'atendimentos/' + id, httpHeader)
   }
 
+  getFullAtendimentos(token):Observable<any>{
+    const httpHeader = {
+      headers: new HttpHeaders({
+        Authorization: token
+      })
+    };
+    return this.http.get<any>(this.url.url + 'atendimentos/full', httpHeader)
+  }
+
+  getFullAtendimentosById(token, id):Observable<any>{
+    const httpHeader = {
+      headers: new HttpHeaders({
+        Authorization: token
+      })
+    };
+    return this.http.get<any>(this.url.url + 'atendimentos/full/' + id, httpHeader)
+  }
 
 }
 
